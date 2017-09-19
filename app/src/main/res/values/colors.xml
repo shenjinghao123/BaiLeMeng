@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="color_000000">#000000</color>
+    <color name="color_ffffff">#ffffff</color>
+    <color name="color_f5f5f5">#f5f5f5</color>
+    <color name="color_E5E5E5">#E5E5E5</color>
+    <color name="color_EAD5DD">#EAD5DD</color>
+    <color name="color_CCCCCC">#CCCCCC</color>
+    <color name="color_454c6d">#454c6d</color>
+    <color name="color_fAfAfA">#fAfAfA</color>
+    <color name="color_f0f0f0">#f0f0f0</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+    <color name="color_f7f7f7">#f7f7f7</color>
+    <color name="color_FE3824">#FE3824</color>
+    <color name="color_BBBBBB">#BBBBBB</color>
+    <color name="color_3a444c">#3A444C</color>
+    <color name="color_434343">#434343</color>
+    <color name="color_E2E2E2">#E2E2E2</color>
+    <color name="color_EEEEEE">#EEEEEE</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_518F9C">#518F9C</color>
+    <color name="color_9FC0C6">#9FC0C6</color>
+    <color name="color_979797">#979797</color>
+    <color name="color_4D4D4D">#4D4D4D</color>
+    <color name="color_85766B">#85766B</color>
+    <color name="color_BF000000">#BF000000</color>
+    <color name="color_888888">#888888</color>
+    <color name="color_000800">#000800</color>
+    <color name="color_DD3647">#DD3647</color>
+    <color name="color_BD081C">#BD081C</color>
+    <color name="color_FC7A06">#FC7A06</color>
+    <color name="color_56B6FF">#56B6FF</color>
+    <color name="color_00ABEB">#00ABEB</color>
+    <color name="color_19A318">#19A318</color>
+    <color name="color_C5C5C5">#C5C5C5</color>
+    <color name="color_F8F8F8">#F8F8F8</color>
+    <color name="common_pressed">#33000000</color>
+    <color name="color_7fffffff">#7fffffff</color>
+    <color name="color_80000000">#80000000</color>
+
+    <color name="more_line_color">#cccccc</color>
+    <color name="more_bg_nor">#ffffff</color>
+    <color name="more_bg_p">#f5f5f5</color>
+</resources>

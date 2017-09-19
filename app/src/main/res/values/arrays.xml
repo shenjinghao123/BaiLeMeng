@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 首页导航 -->
+    <string-array name="bottom_bar_labels">
+        <item>@string/maintab_1</item>
+        <item>@string/maintab_2</item>
+        <item>@string/maintab_3</item>
+        <item>@string/maintab_4</item>
+    </string-array>
+</resources>
