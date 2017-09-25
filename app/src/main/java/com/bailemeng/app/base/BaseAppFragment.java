@@ -32,4 +32,11 @@ public abstract class BaseAppFragment extends BaseFragment {
     public abstract void initialListenter();
 
     public abstract void initialData();
+
+    public void updateArguments(Bundle data) {
+        Bundle args = getArguments();
+        if (args != null) {
+            args.putBundle("data", data);
+        }
+    }
 }
