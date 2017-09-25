@@ -8,16 +8,13 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/home_manage_tab"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_30"
-        app:tabTextColor="@color/color_999999"
-        app:tabSelectedTextColor="@color/color_333333"
-        app:tabIndicatorColor="@color/color_333333"
+        android:layout_height="@dimen/dimen_55"
+        app:tabIndicatorColor="@color/color_ffffff"
+        app:tabBackground="@color/colorPrimary"
         app:tabMode="scrollable"
         android:fillViewport="false"/>
 
-    <include layout="@layout/common_fine_line"/>
-
-    <android.support.v4.view.ViewPager
+    <com.bailemeng.app.widget.MyViewPager
         android:id="@+id/vp_home_manage_tab_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

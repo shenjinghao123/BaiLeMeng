@@ -1,4 +1,4 @@
-package com.bailemeng.app.main;
+package com.bailemeng.app.main.activity;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;

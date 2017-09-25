@@ -1,11 +1,20 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/activity_change_anim</item>
+    </style>
+
+    <!-- 页面打开方式 （左进右出）-->
+    <style name="activity_change_anim" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in_left</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out_right</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in_right</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out_left</item>
     </style>
 
 </resources>
