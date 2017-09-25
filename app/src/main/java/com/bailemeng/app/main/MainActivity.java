@@ -1,11 +1,12 @@
-package com.taimen.bailemen.damo;
+package com.bailemeng.app.main;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
+import com.bailemeng.app.R;
+import com.bailemeng.app.base.BaseAppActivity;
+import com.bailemeng.app.widget.MyTabWidget;
 import com.classic.android.utils.DoubleClickExitHelper;
-import com.taimen.bailemen.base.BaseAppActivity;
-import com.taimen.bailemen.widget.MyTabWidget;
 
 public class MainActivity extends BaseAppActivity {
     public static final String TAG = "MainActivity";
@@ -23,10 +24,10 @@ public class MainActivity extends BaseAppActivity {
     private DoubleClickExitHelper exitHelper;
 
     //主页fragment
-//    private HomeFragment     homeFragment;//首页
-//    private DiscoverFragment discoverFragment;//发现页面
-//    private Fragment sessionListFragment;//消息页面
-//    private MineFragment     mineFragment;//我的页面
+//    private HomeFragment       homeFragment;//百乐萌首页
+//    private CollegeFragment    collegeFragment;//大学页面
+//    private MineFragment  communityFragment;//社区页面
+//    private MineFragment       mineFragment;//我的页面
     @Override
     public int getLayoutResId() {
         return R.layout.activity_main;

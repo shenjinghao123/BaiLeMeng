@@ -1,11 +1,14 @@
-package com.taimen.bailemen.base;
+package com.bailemeng.app.base;
 
 import android.os.Bundle;
 
 import com.classic.android.base.BaseActivity;
 
 /**
- * Created by 123 on 2017/9/18.
+ * 应用名称: BaiLeMeng
+ * 包 名 称: com.bailemeng.app.base
+ * 创 建 人: 123
+ * 创建时间: 2017/9/18
  */
 
 public abstract class BaseAppActivity extends BaseActivity {

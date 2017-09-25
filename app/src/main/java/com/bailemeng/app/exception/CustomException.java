@@ -1,4 +1,4 @@
-package com.taimen.bailemen.exception;
+package com.bailemeng.app.exception;
 
 /**
  * 异常类

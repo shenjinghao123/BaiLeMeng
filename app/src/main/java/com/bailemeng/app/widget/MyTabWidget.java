@@ -1,4 +1,4 @@
-package com.taimen.bailemen.widget;
+package com.bailemeng.app.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.taimen.bailemen.damo.R;
-import com.taimen.bailemen.exception.CustomException;
+import com.bailemeng.app.R;
+import com.bailemeng.app.exception.CustomException;
 
 import java.util.ArrayList;
 import java.util.List;
