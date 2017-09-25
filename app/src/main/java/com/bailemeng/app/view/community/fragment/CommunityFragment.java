@@ -12,6 +12,11 @@ import com.bailemeng.app.base.BaseAppFragment;
  * 创建时间: 2017/9/25
  */
 public class CommunityFragment extends BaseAppFragment {
+
+    public static CommunityFragment newInstance() {
+        return new CommunityFragment();
+    }
+
     @Override
     public void initialView(View view) {
 
@@ -29,6 +34,6 @@ public class CommunityFragment extends BaseAppFragment {
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_community;
     }
 }

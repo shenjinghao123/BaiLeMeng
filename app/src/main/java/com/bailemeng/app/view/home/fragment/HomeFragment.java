@@ -12,6 +12,11 @@ import com.bailemeng.app.base.BaseAppFragment;
  * 创建时间: 2017/9/25
  */
 public class HomeFragment extends BaseAppFragment {
+
+    public static HomeFragment newInstance() {
+        return new HomeFragment();
+    }
+
     @Override
     public void initialView(View view) {
 

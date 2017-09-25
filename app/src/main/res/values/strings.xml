@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Damo</string>
+    <string name="app_name">BaiLeMeng</string>
 
     <!-- 主页tab -->
-    <string name="maintab_1">首页</string>
-    <string name="maintab_2">集市</string>
-    <string name="maintab_3">圈子</string>
-    <string name="maintab_4">我的</string>
+    <string name="maintab_1">百乐萌</string>
+    <string name="maintab_2">大学</string>
+    <string name="maintab_shot">拍摄</string>
+    <string name="maintab_3">社区</string>
+    <string name="maintab_4">我</string>
 
     <!--首页-->
 

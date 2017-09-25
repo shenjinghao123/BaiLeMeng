@@ -5,6 +5,7 @@
     <string-array name="bottom_bar_labels">
         <item>@string/maintab_1</item>
         <item>@string/maintab_2</item>
+        <item>@string/maintab_shot</item>
         <item>@string/maintab_3</item>
         <item>@string/maintab_4</item>
     </string-array>

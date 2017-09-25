@@ -161,6 +161,27 @@ public class MyTabWidget extends LinearLayout {
 		indicateImg.setVisibility(visible ? View.VISIBLE : View.GONE);
 	}
 
+	/**
+	 * 设置拍摄的显示
+	 *
+	 * @param position
+	 *            显示位置
+	 * @param visible
+	 *            是否显示，如果false，则都不显示
+	 */
+	public void setIndicateImageDisplay(int position,
+								   boolean visible) {
+		int size = mIndicateImgs.size();
+		if (size <= position) {
+			return;
+		}
+		ImageView indicateImg = mIndicateImgs.get(position);
+        TextView itemName = mCheckedList.get(position);
+		indicateImg.setVisibility(visible ? View.VISIBLE : View.GONE);
+		itemName.setVisibility(visible ? View.GONE : View.VISIBLE);
+		indicateImg.setBackgroundResource(R.mipmap.maintab_shot);
+	}
+
 //	/**
 //	 * 设置红点的显示
 //	 *

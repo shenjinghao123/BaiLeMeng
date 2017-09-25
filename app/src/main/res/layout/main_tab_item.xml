@@ -10,9 +10,9 @@
 
         <ImageView
             android:id="@+id/indicate_img"
-            android:layout_width="23.3dp"
-            android:layout_height="22.5dp"
-            android:layout_marginTop="6.1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_gravity="center_horizontal"/>
 
         <CheckedTextView
@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/main_tab_text_color"
-            android:textSize="@dimen/text_10"/>
+            android:textSize="@dimen/text_14"/>
 
     </LinearLayout>
 

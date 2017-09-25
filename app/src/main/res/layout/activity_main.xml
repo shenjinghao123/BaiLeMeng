@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.taimen.bailemen.damo.MainActivity">
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/center_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.0"
+        android:background="@color/color_ffffff">
+    </FrameLayout>
+
+    <com.bailemeng.app.widget.MyTabWidget
+        android:id="@+id/main_tab_widget"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        app:bottom_labels="@array/bottom_bar_labels"
+        android:background="@color/color_ffffff"/>
+
+</LinearLayout>

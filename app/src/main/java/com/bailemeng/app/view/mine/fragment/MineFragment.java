@@ -12,6 +12,11 @@ import com.bailemeng.app.base.BaseAppFragment;
  * 创建时间: 2017/9/25
  */
 public class MineFragment extends BaseAppFragment {
+
+    public static MineFragment newInstance() {
+        return new MineFragment();
+    }
+
     @Override
     public void initialView(View view) {
 
@@ -29,6 +34,6 @@ public class MineFragment extends BaseAppFragment {
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_mine;
     }
 }
