@@ -12,6 +12,7 @@
         app:tabTextColor="@color/color_999999"
         app:tabSelectedTextColor="@color/color_333333"
         app:tabIndicatorColor="@color/color_333333"
+        app:tabMode="scrollable"
         android:fillViewport="false"/>
 
     <include layout="@layout/common_fine_line"/>
