@@ -25,7 +25,7 @@ public class HomeTabAdapter extends FragmentPagerAdapter {
 	@Override
 	public Fragment getItem(int position) {
 		//新建一个Fragment来展示ViewPager item的内容，并传递参数
-		Fragment fragment = new HomeItemFragment();
+		Fragment fragment = HomeItemFragment.newInstance();
 		Bundle args = new Bundle();
 		args.putString("arg", tabTitle.get(position));
 		fragment.setArguments(args);

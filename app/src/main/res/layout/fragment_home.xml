@@ -8,10 +8,12 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/home_manage_tab"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_55"
+        android:layout_height="@dimen/dimen_48"
         app:tabIndicatorColor="@color/color_ffffff"
         app:tabBackground="@color/colorPrimary"
+        app:tabMinWidth="0dp"
         app:tabMode="scrollable"
+        android:background="@color/colorPrimary"
         android:fillViewport="false"/>
 
     <com.bailemeng.app.widget.MyViewPager

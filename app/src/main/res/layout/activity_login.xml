@@ -22,6 +22,7 @@
         android:orientation="vertical">
 
         <TableRow
+            android:id="@+id/login_weixin_go"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_10"
@@ -46,6 +47,7 @@
         <View style="@style/line_E5E5E5_drivie"/>
 
         <TableRow
+            android:id="@+id/login_qq_go"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_10"
@@ -70,6 +72,7 @@
         <View style="@style/line_E5E5E5_drivie"/>
 
         <TableRow
+            android:id="@+id/login_phone_go"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_10"
