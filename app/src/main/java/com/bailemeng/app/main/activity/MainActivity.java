@@ -12,6 +12,7 @@ import com.bailemeng.app.view.community.fragment.CommunityFragment;
 import com.bailemeng.app.view.home.fragment.HomeFragment;
 import com.bailemeng.app.view.mine.fragment.MineFragment;
 import com.bailemeng.app.widget.MyTabWidget;
+import com.bailemeng.app.widget.dialog.ShadeBottomUploadDialog;
 import com.classic.android.utils.DoubleClickExitHelper;
 
 public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSelectedListener {
@@ -84,8 +85,10 @@ public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSe
                 }
                 break;
             case MAIN_SHOT_INDEX:
-                LoginActivity.start(mActivity,null);
-                break;
+//                LoginActivity.start(mActivity,null);
+                ShadeBottomUploadDialog shadeBottomUploadDialog=new ShadeBottomUploadDialog(mActivity);
+                shadeBottomUploadDialog.show();
+                return;
             case MAIN_THREE_INDEX:
                 if (null == communityFragment){
                     communityFragment = CommunityFragment.newInstance();
