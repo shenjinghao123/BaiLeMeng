@@ -8,6 +8,7 @@ import com.bailemeng.app.utils.SDcardUtil;
 import com.bailemeng.app.utils.ScreenUtil;
 import com.bailemeng.app.utils.SharedPreferencesUtil;
 import com.bailemeng.app.utils.log.Logger;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
@@ -48,7 +49,7 @@ public class AppContext extends Application {
         //初始化打印日志
         Logger.init(LOG_TAG);
         //初始化Fresco
-//        Fresco.initialize(this/*, FrescoUtil.getImagePipelineConfig(this)*/);
+        Fresco.initialize(this/*, FrescoUtil.getImagePipelineConfig(this)*/);
         //友盟
         UMShareAPI.get(this);
     }

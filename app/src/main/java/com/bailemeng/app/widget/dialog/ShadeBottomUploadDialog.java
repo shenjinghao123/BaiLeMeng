@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.LinearLayout;
 
 import com.bailemeng.app.R;
+import com.bailemeng.app.utils.ToastUtil;
 
 /**
  * 应用名称: BaiLeMeng
@@ -19,12 +21,13 @@ import com.bailemeng.app.R;
  * 创 建 人: 123
  * 创建时间: 2017/9/26
  */
-public class ShadeBottomUploadDialog extends Dialog {
+public class ShadeBottomUploadDialog extends Dialog implements View.OnClickListener {
 
     private Activity activity;
+    private LinearLayout uploadShotLl,uploadGameLl,uploadVideoLl;
 
     public ShadeBottomUploadDialog(Activity activity) {
-        super(activity, R.style.CommonDialogStyle);
+        super(activity, R.style.common_dialog_style);
         this.activity = activity;
         findViews();
         setListeners();
@@ -36,10 +39,30 @@ public class ShadeBottomUploadDialog extends Dialog {
 
     private void findViews() {
         View view = LayoutInflater.from(activity).inflate(R.layout.dialog_shade_bottom_upload, null);
+        uploadShotLl = view.findViewById(R.id.upload_shot_ll);
+        uploadGameLl = view.findViewById(R.id.upload_game_ll);
+        uploadVideoLl = view.findViewById(R.id.upload_video_ll);
         setContentView(view);
     }
 
     private void setListeners() {
+        uploadShotLl.setOnClickListener(this);
+        uploadGameLl.setOnClickListener(this);
+        uploadVideoLl.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.upload_shot_ll:
+                ToastUtil.showLongToast(activity,"拍摄");
+                break;
+            case R.id.upload_game_ll:
+                ToastUtil.showLongToast(activity,"参赛");
+                break;
+            case R.id.upload_video_ll:
+                ToastUtil.showLongToast(activity,"上传");
+                break;
+        }
     }
 }

@@ -2,10 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:gravity="bottom"
+    android:background="@drawable/bg_gradient_color"
+    android:paddingTop="@dimen/dimen_50"
+    android:paddingBottom="@dimen/dimen_50"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/upload_shot_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -25,6 +29,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/upload_game_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -44,6 +49,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/upload_video_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
