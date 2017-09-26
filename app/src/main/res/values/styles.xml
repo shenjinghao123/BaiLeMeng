@@ -17,4 +17,18 @@
         <item name="android:activityCloseExitAnimation">@anim/fade_out_left</item>
     </style>
 
+    <!-- f5f5f5线. -->
+    <style name="line_f5f5f5_drivie">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/color_f5f5f5</item>
+    </style>
+
+    <!-- E5E5E5线. -->
+    <style name="line_E5E5E5_drivie">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/color_E5E5E5</item>
+    </style>
+
 </resources>

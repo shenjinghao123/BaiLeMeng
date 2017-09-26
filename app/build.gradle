@@ -11,9 +11,41 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+    /**
+     * 签名文档配置，不同的渠道可以配置不同的签名
+     */
+    signingConfigs {
+
+        debug { storeFile file("debug.keystore") }
+
         release {
-            minifyEnabled false
+            storeFile file('BaiLeMeng.keystore')
+            storePassword 'bailemeng'
+            keyAlias 'BaiLeMeng.keystore'
+            keyPassword 'bailemeng'
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"//是否开启日志
+            debuggable true
+            minifyEnabled false//开启混淆
+            zipAlignEnabled false//是否zip对齐
+            shrinkResources false//删除无用资源文件，依赖于混淆
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"//是否开启日志
+            minifyEnabled true//开启混淆
+            zipAlignEnabled true//是否zip对齐
+            shrinkResources false//删除无用资源文件，依赖于混淆
+            signingConfig signingConfigs.release
+            debuggable false
+            //混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -21,12 +53,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
     //基础项目
     compile 'com.classic.android:core:1.0'
     compile 'com.android.support:design:26.0.0-alpha1'

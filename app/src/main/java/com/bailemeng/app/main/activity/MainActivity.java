@@ -3,6 +3,7 @@ package com.bailemeng.app.main.activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppActivity;
@@ -83,6 +84,7 @@ public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSe
                 }
                 break;
             case MAIN_SHOT_INDEX:
+                LoginActivity.start(mActivity,null);
                 break;
             case MAIN_THREE_INDEX:
                 if (null == communityFragment){
@@ -104,9 +106,7 @@ public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSe
                 break;
         }
         mIndex = index;
-        /*BuryPointUtil.mainIndex = index;*/
         transaction.commitAllowingStateLoss();
-        /*IntentUtil.mainIndex = index;*/
         mTabWidget.setTabsDisplay(mActivity, index);
     }
 
@@ -141,6 +141,11 @@ public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSe
         if (null != mineFragment){
             mineFragment.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return exitHelper.onKeyDown(keyCode, event);
     }
 
 }
