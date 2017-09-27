@@ -3,16 +3,20 @@ package com.bailemeng.app.view.home.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppFragment;
+import com.bailemeng.app.utils.ToastUtil;
 import com.bailemeng.app.view.home.adapter.HomeItemAdapter;
 import com.bailemeng.app.widget.MyGridView;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -41,11 +45,16 @@ public class HomeItemFragment extends BaseAppFragment {
     private Banner banner;
     private MyGridView itemGridView;
     private BaseAdapter adapter;
+    private SwipeRefreshLayout swipeRefresh;
+    private ScrollView scrollView;
+    private List<String> list = new ArrayList<String>();
 
     @Override
     public void initialView(View view) {
         banner = (Banner) view.findViewById(R.id.home_banner_view);
         itemGridView = view.findViewById(R.id.home_item_grid_view);
+        swipeRefresh = view.findViewById(R.id.home_swipe_refresh);
+        scrollView = view.findViewById(R.id.home_scroll_view);
 
         //获取Activity传递过来的参数
         Bundle mBundle = getArguments();
@@ -55,15 +64,46 @@ public class HomeItemFragment extends BaseAppFragment {
 
     @Override
     public void initialListenter() {
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                list.clear();
+                List<String> addList = new ArrayList<String>();
+                addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");
+                list.addAll(addList);
+                adapter.notifyDataSetChanged();
+                swipeRefresh.setRefreshing(false);
+            }
+        });
+        scrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // 判断 scrollView 当前滚动位置在顶部
+                if(scrollView.getScrollY() == 0){
+                }
 
+                // 判断scrollview 滑动到底部
+                // scrollY 的值和子view的高度一样，这人物滑动到了底部
+                if (scrollView.getChildAt(0).getHeight() - scrollView.getHeight()
+                        == scrollView.getScrollY()){
+                    ToastUtil.showToast(mActivity,"滑动到底部");
+                    List<String> addList = new ArrayList<String>();
+                    addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");
+                    list.addAll(addList);
+                    adapter.notifyDataSetChanged();
+                }
+                return false;
+            }
+        });
     }
 
     @Override
     public void initialData() {
         bannerStyle();
         setBanner();
-        List<String> list = new ArrayList<String>();
-        list.add("");list.add("");list.add("");list.add("");list.add("");list.add("");list.add("");list.add("");list.add("");
+        List<String> addList = new ArrayList<String>();
+        addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");addList.add("");
+        list.addAll(addList);
         adapter=new HomeItemAdapter(mActivity,list);
         itemGridView.setAdapter(adapter);
     }
