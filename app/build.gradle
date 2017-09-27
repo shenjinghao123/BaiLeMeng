@@ -7,8 +7,8 @@ android {
         applicationId "com.bailemeng.app"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 150
+        versionName "2.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -21,9 +21,9 @@ android {
 
         release {
             storeFile file('BaiLeMeng.keystore')
-            storePassword 'bailemeng'
-            keyAlias 'BaiLeMeng.keystore'
-            keyPassword 'bailemeng'
+            storePassword 'lx19960521'
+            keyAlias 'bailemeng'
+            keyPassword 'lx19960521'
         }
     }
 

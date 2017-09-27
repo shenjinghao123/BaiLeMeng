@@ -106,6 +106,7 @@ public class HomeItemFragment extends BaseAppFragment {
         list.addAll(addList);
         adapter=new HomeItemAdapter(mActivity,list);
         itemGridView.setAdapter(adapter);
+        swipeRefresh.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
     }
 
     @Override
