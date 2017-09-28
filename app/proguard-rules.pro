@@ -34,6 +34,9 @@
 #如果引用了v4或者v7包
 -dontwarn android.support.**
 
+#腾讯云视频
+-keep class com.tencent.** { *; }
+
 -dontshrink
 -dontoptimize
 -dontwarn com.google.android.maps.**

@@ -3,6 +3,7 @@ package com.bailemeng.app.main.activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import com.bailemeng.app.R;
@@ -14,6 +15,7 @@ import com.bailemeng.app.view.mine.fragment.MineFragment;
 import com.bailemeng.app.widget.MyTabWidget;
 import com.bailemeng.app.widget.dialog.ShadeBottomUploadDialog;
 import com.classic.android.utils.DoubleClickExitHelper;
+import com.tencent.rtmp.TXLiveBase;
 
 public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSelectedListener {
     public static final String TAG = "MainActivity";
@@ -45,6 +47,8 @@ public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSe
     public void initialView() {
         mTabWidget = (MyTabWidget) findViewById(R.id.main_tab_widget);
         mTabWidget.setIndicateImageDisplay(MAIN_SHOT_INDEX,true);
+        String sdkver = TXLiveBase.getSDKVersionStr();
+        Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
     }
 
     @Override
