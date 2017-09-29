@@ -3,6 +3,7 @@ package com.bailemeng.app.widget.dialog;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 import android.view.Gravity;
@@ -13,6 +14,7 @@ import android.view.Window;
 import android.widget.LinearLayout;
 
 import com.bailemeng.app.R;
+import com.bailemeng.app.tencent.videorecord.TCVideoRecordActivity;
 import com.bailemeng.app.utils.ToastUtil;
 
 /**
@@ -22,6 +24,22 @@ import com.bailemeng.app.utils.ToastUtil;
  * 创建时间: 2017/9/26
  */
 public class ShadeBottomUploadDialog extends Dialog implements View.OnClickListener {
+
+    public static final String RECORD_CONFIG_MAX_DURATION       = "record_config_max_duration";
+    public static final String RECORD_CONFIG_MIN_DURATION       = "record_config_min_duration";
+    public static final String RECORD_CONFIG_ASPECT_RATIO       = "record_config_aspect_ratio";
+    public static final String RECORD_CONFIG_RECOMMEND_QUALITY  = "record_config_recommend_quality";
+    public static final String RECORD_CONFIG_RESOLUTION         = "record_config_resolution";
+    public static final String RECORD_CONFIG_BITE_RATE          = "record_config_bite_rate";
+    public static final String RECORD_CONFIG_FPS                = "record_config_fps";
+    public static final String RECORD_CONFIG_GOP                = "record_config_gop";
+
+    private int mRecommendQuality = -1;
+    private int mAspectRatio; // 视频比例
+    private int mRecordResolution; // 录制分辨率
+    private int mBiteRate = 1800; // 码率
+    private int mFps = 20; // 帧率
+    private int mGop = 3; // 关键帧间隔
 
     private Activity activity;
     private LinearLayout uploadShotLl,uploadGameLl,uploadVideoLl;
@@ -55,7 +73,8 @@ public class ShadeBottomUploadDialog extends Dialog implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.upload_shot_ll:
-                ToastUtil.showLongToast(activity,"拍摄");
+//                ToastUtil.showLongToast(activity,"拍摄");
+                startVideoRecordActivity();
                 break;
             case R.id.upload_game_ll:
                 ToastUtil.showLongToast(activity,"参赛");
@@ -64,5 +83,22 @@ public class ShadeBottomUploadDialog extends Dialog implements View.OnClickListe
                 ToastUtil.showLongToast(activity,"上传");
                 break;
         }
+    }
+    private void startVideoRecordActivity(){
+        Intent intent = new Intent(activity, TCVideoRecordActivity.class);
+        intent.putExtra(RECORD_CONFIG_MIN_DURATION, 5 * 1000);
+        intent.putExtra(RECORD_CONFIG_MAX_DURATION, 60 * 1000);
+        intent.putExtra(RECORD_CONFIG_ASPECT_RATIO, mAspectRatio);
+        if(mRecommendQuality != -1){
+            // 提供的三挡设置
+            intent.putExtra(RECORD_CONFIG_RECOMMEND_QUALITY, mRecommendQuality);
+        }else{
+            // 自定义设置
+            intent.putExtra(RECORD_CONFIG_RESOLUTION, mRecordResolution);
+            intent.putExtra(RECORD_CONFIG_BITE_RATE, mBiteRate);
+            intent.putExtra(RECORD_CONFIG_FPS, mFps);
+            intent.putExtra(RECORD_CONFIG_GOP, mGop);
+        }
+        activity.startActivity(intent);
     }
 }

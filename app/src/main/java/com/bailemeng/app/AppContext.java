@@ -2,6 +2,7 @@ package com.bailemeng.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.bailemeng.app.common.AppConfig;
 import com.bailemeng.app.utils.SDcardUtil;
@@ -9,6 +10,8 @@ import com.bailemeng.app.utils.ScreenUtil;
 import com.bailemeng.app.utils.SharedPreferencesUtil;
 import com.bailemeng.app.utils.log.Logger;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.rtmp.TXLiveBase;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
@@ -31,10 +34,10 @@ public class AppContext extends Application {
     private static Context context;
     private static final String TAG = "AppContext";
 
-//    protected void attachBaseContext(Context newBase) {
-//        super.attachBaseContext(newBase);
-//        MultiDex.install(newBase);
-//    }
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        MultiDex.install(newBase);
+    }
 
     @Override
     public void onCreate() {
@@ -52,6 +55,10 @@ public class AppContext extends Application {
         Fresco.initialize(this/*, FrescoUtil.getImagePipelineConfig(this)*/);
         //友盟
         UMShareAPI.get(this);
+
+        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(getApplicationContext());
+        strategy.setAppVersion(TXLiveBase.getSDKVersionStr());
+        CrashReport.initCrashReport(getApplicationContext(),strategy);
     }
 
     public static Context getContext() {

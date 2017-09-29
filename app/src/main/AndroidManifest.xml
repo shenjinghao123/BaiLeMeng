@@ -3,17 +3,27 @@
     package="com.bailemeng.app">
 
     <!-- 腾讯云视频 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.Camera"/>
-    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
+    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
     <!-- 友盟 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -77,6 +87,72 @@
         </meta-data>
         <!-- umeng -->
 
+        <!-- tencent -->
+        <activity
+            android:name=".tencent.common.activity.QRCodeScanActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".push.LivePublisherActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+
+        <activity
+            android:name=".play.LivePlayerActivity"
+            android:screenOrientation="portrait"/>
+
+
+        <activity android:name=".linkmic.LinkMicActivity"
+            android:screenOrientation="portrait" />
+
+        <!--<activity-->
+        <!--android:name="com.tencent.liteav.screencapture.TXCScreenCaptureAssistantActivity"-->
+        <!--android:theme="@android:style/Theme.Translucent"/>-->
+
+        <activity android:name=".tencent.videorecord.TCVideoRecordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <activity android:name=".tencent.videorecord.TCVideoSettingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <activity android:name=".tencent.common.activity.videopreview.TCVideoPreviewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name="com.tencent.rtmp.video.TXScreenCapture$TXScreenCaptureAssistantActivity" android:theme="@android:style/Theme.Translucent" />
+
+        <activity
+            android:name=".tencent.shortvideo.choose.TCVideoChooseActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".tencent.shortvideo.joiner.TCVideoJoinerActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".tencent.shortvideo.joiner.TCVideoJoinerPreviewActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".tencent.shortvideo.editor.TCVideoEditerActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- 配置bugly组件的APP ID，bugly组件为腾讯提供的用于crash上报和分析的开放组件，如果您不需要该组件，可以自行移除 -->
+        <meta-data
+            android:name="BUGLY_APPID"
+            android:value="928c8ef035"/>
+
+        <!-- 配置bugly组件的APP渠道号 -->
+        <meta-data
+            android:name="BUGLY_APP_CHANNEL"
+            android:value="RDM版本"/>
+
+        <!-- 配置bugly组件的调试模式（true或者false）-->
+        <meta-data
+            android:name="BUGLY_ENABLE_DEBUG"
+            android:value="true"/>
     </application>
 
 </manifest>
