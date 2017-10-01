@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ffffff"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/coolapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/colorPrimary"
+            app:expandedTitleMarginBottom="10dp"
+            app:expandedTitleMarginStart="16dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="Hello"
+            app:titleEnabled="true">
+            <!--封面图片-->
+            <ImageView
+                android:id="@+id/details_video_vod_iv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_200"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"
+                android:fitsSystemWindows="true"/>
+
+            <FrameLayout
+                android:id="@+id/details_video_vod_fl"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_200"
+                android:visibility="gone">
+
+            </FrameLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/details_video_vod_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="pin"
+                app:title="Hi">
+                <!--自定义带图片的立即播放按钮-->
+                <android.support.v7.widget.ButtonBarLayout
+                    android:id="@+id/playButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:visibility="gone">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:id="@+id/play_top_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:text="立即播放"
+                        android:layout_gravity="center_vertical"
+                        />
+                </android.support.v7.widget.ButtonBarLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/details_video_vod_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_ffffff"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabMinWidth="0dp"
+            app:tabSelectedTextColor="@color/color_333333"
+            app:tabTextColor="@color/color_999999" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/details_video_vod_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/play_start_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/coolapsing_toolbar"
+        app:layout_anchorGravity="bottom|right"
+        android:layout_marginRight="16dp"/>
+
+</android.support.design.widget.CoordinatorLayout>

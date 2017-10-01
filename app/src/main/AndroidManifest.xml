@@ -60,6 +60,11 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
         <!-- main -->
+        <!-- common -->
+        <activity
+            android:name=".view.home.activity.VideoDetailsActivity"
+            android:screenOrientation="portrait"></activity>
+        <!-- common -->
         <!-- umeng -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
@@ -88,11 +93,6 @@
         <!-- umeng -->
 
         <!-- tencent -->
-        <activity
-            android:name=".tencent.common.activity.QRCodeScanActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
         <activity
             android:name=".push.LivePublisherActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

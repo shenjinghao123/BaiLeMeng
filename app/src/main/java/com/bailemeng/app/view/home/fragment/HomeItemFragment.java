@@ -7,6 +7,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppFragment;
 import com.bailemeng.app.utils.ToastUtil;
+import com.bailemeng.app.view.home.activity.VideoDetailsActivity;
 import com.bailemeng.app.view.home.adapter.HomeItemAdapter;
 import com.bailemeng.app.widget.MyGridView;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -93,6 +95,12 @@ public class HomeItemFragment extends BaseAppFragment {
                     adapter.notifyDataSetChanged();
                 }
                 return false;
+            }
+        });
+        itemGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                VideoDetailsActivity.start(mActivity,null);
             }
         });
     }

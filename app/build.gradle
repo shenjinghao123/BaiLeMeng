@@ -58,11 +58,8 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    // 导入短视频SDK aar
-    compile(name: 'zxing-1.8.4', ext: 'aar')
-    compile(name: 'barcodescanner-core-1.8.4', ext: 'aar')
-    compile(name: 'volley-1.0.0', ext: 'aar')
-    compile(name: 'LiteAVSDK_UGC', ext: 'aar')
+    // 导入腾讯云直播SDK jar
+    compile fileTree(dir: 'src/main/jniLibs', includes: ['*.jar'])
     //基础项目
     compile 'com.classic.android:core:1.0'
     compile 'com.android.support:design:26.0.0-alpha1'

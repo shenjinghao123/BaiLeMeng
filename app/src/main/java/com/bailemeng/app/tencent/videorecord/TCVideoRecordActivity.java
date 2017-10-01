@@ -493,8 +493,8 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
         } else {
             isSelected = false;
             mRecordProgressView.deleteLast();
-            mTXCameraRecord.getPartManager().deleteLastPart();
-            int timeSecond = mTXCameraRecord.getPartManager().getDuration() / 1000;
+            mTXCameraRecord.getPartsManager().deleteLastPart();
+            int timeSecond = mTXCameraRecord.getPartsManager().getDuration() / 1000;
             mProgressTime.setText(String.format(Locale.CHINA, "00:%02d", timeSecond));
             if (timeSecond < mMinDuration / 1000) {
                 mIvConfirm.setImageResource(R.drawable.ugc_confirm_disable);
@@ -504,7 +504,7 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
                 mIvConfirm.setEnabled(true);
             }
 
-            if (mTXCameraRecord.getPartManager().getPartsPathList().size() == 0) {
+            if (mTXCameraRecord.getPartsManager().getPartsPathList().size() == 0) {
                 mIvScaleMask.setVisibility(View.GONE);
             }
         }
@@ -620,7 +620,7 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
         }
         if (mRecording) {
             if (mPause) {
-                if (mTXCameraRecord.getPartManager().getPartsPathList().size() == 0) {
+                if (mTXCameraRecord.getPartsManager().getPartsPathList().size() == 0) {
                     startRecord();
                 } else {
                     resumeRecord();
@@ -650,7 +650,7 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
             mTXCameraRecord.resumeRecord();
             if (!TextUtils.isEmpty(mBGMPath)) {
                 if (mBGMPlayingPath == null || !mBGMPath.equals(mBGMPlayingPath)) {
-                    mTXCameraRecord.playBGM(mBGMPath);
+                    mTXCameraRecord.setBGM(mBGMPath);
                     mBGMPlayingPath = mBGMPath;
                 } else {
                     mTXCameraRecord.resumeBGM();
@@ -717,7 +717,7 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
             return;
         }
         if (!TextUtils.isEmpty(mBGMPath)) {
-            mTXCameraRecord.playBGM(mBGMPath);
+            mTXCameraRecord.setBGM(mBGMPath);
             mBGMPlayingPath = mBGMPath;
         }
 
@@ -795,7 +795,7 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
             return;
         }
         mRecordProgressView.setProgress((int) milliSecond);
-        int timeSecond = (int) (mTXCameraRecord.getPartManager().getDuration() + milliSecond) / 1000;
+        int timeSecond = (int) (mTXCameraRecord.getPartsManager().getDuration() + milliSecond) / 1000;
         mProgressTime.setText(String.format(Locale.CHINA, "00:%02d", timeSecond));
         if (timeSecond < mMinDuration / 1000) {
             mIvConfirm.setImageResource(R.drawable.ugc_confirm_disable);
@@ -837,14 +837,14 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
             if (liveRecord != null) liveRecord.setBackgroundResource(R.drawable.start_record);
             mRecording = false;
 
-            int timeSecond = mTXCameraRecord.getPartManager().getDuration() / 1000;
+            int timeSecond = mTXCameraRecord.getPartsManager().getDuration() / 1000;
             mProgressTime.setText(String.format(Locale.CHINA, "00:%02d", timeSecond));
             Toast.makeText(TCVideoRecordActivity.this.getApplicationContext(), "录制失败，原因：" + mTXRecordResult.descMsg, Toast.LENGTH_SHORT).show();
         } else {
 //            mProgressTime.setText(String.format(Locale.CHINA, "%s", "00:00"));
 //            startPreview();
             if (mTXCameraRecord != null) {
-                mTXCameraRecord.getPartManager().deleteAllParts();
+                mTXCameraRecord.getPartsManager().deleteAllParts();
             }
             startEditVideo();
         }
@@ -1118,7 +1118,7 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
         }
         if (mPause) {
             if (mTXCameraRecord != null) {
-                mTXCameraRecord.getPartManager().deleteAllParts();
+                mTXCameraRecord.getPartsManager().deleteAllParts();
             }
             finish();
         } else {

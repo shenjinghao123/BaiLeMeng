@@ -10,8 +10,6 @@ import com.bailemeng.app.utils.ScreenUtil;
 import com.bailemeng.app.utils.SharedPreferencesUtil;
 import com.bailemeng.app.utils.log.Logger;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.tencent.bugly.crashreport.CrashReport;
-import com.tencent.rtmp.TXLiveBase;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
@@ -56,9 +54,6 @@ public class AppContext extends Application {
         //友盟
         UMShareAPI.get(this);
 
-        CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(getApplicationContext());
-        strategy.setAppVersion(TXLiveBase.getSDKVersionStr());
-        CrashReport.initCrashReport(getApplicationContext(),strategy);
     }
 
     public static Context getContext() {

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.tencent.rtmp.ui.TXCloudVideoView
+        android:id="@+id/vod_video_play_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <RelativeLayout
+        android:id="@+id/vod_video_play_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45"
+        android:background="@color/color_80000000"
+        android:paddingBottom="@dimen/dimen_3"
+        android:layout_gravity="bottom"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/vod_video_play_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/record_start"/>
+
+        <SeekBar
+            android:id="@+id/vod_video_seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="0"
+            android:maxHeight="2.0dip"
+            android:minHeight="2.0dip"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/play_seekbar_progress"
+            android:thumb="@drawable/play_seekbar_icon"
+            android:layout_toRightOf="@+id/vod_video_play_iv"
+            android:layout_toLeftOf="@+id/vod_video_progress_time"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/vod_video_progress_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:text="00:00/00:00"
+            android:textColor="@color/c8"
+            android:textSize="@dimen/text_12" />
+
+    </RelativeLayout>
+
+</FrameLayout>
