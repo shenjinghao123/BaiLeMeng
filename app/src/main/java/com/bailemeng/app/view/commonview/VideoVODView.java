@@ -39,6 +39,8 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
 
     private Context context;
     private View view;
+    private ImageView detailsVideoVodIv;
+    private FrameLayout detailsVideoVodFl;
     private TXCloudVideoView mPlayerView;
     private SeekBar videoSeekBar;
     private TextView videoProgressTime;
@@ -48,6 +50,7 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
     private boolean mStartSeek = false;
     private RelativeLayout vodVideoPlayRl;
     private OnPlayingListener onPlayingListener;
+    private OnPlayVideoStartListener onPlayVideoStartListener;
 
     public VideoVODView(@Nullable Context context) {
         this(context,null);
@@ -74,6 +77,8 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
     private void initView() {
         view = LayoutInflater.from(context).inflate(R.layout.view_video_vod,null);
         mPlayerView = (TXCloudVideoView) view.findViewById(R.id.vod_video_play_view);
+        detailsVideoVodFl = (FrameLayout) view.findViewById(R.id.details_video_vod_fl);//
+        detailsVideoVodIv = (ImageView) view.findViewById(R.id.details_video_vod_iv);//封面
         videoSeekBar = (SeekBar) view.findViewById(R.id.vod_video_seek_bar);
         videoProgressTime = (TextView) view.findViewById(R.id.vod_video_progress_time);
         playIv = (ImageView) view.findViewById(R.id.vod_video_play_iv);
@@ -84,6 +89,7 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
     private void initEvevt() {
         mPlayerView.setOnClickListener(this);
         playIv.setOnClickListener(this);
+        detailsVideoVodFl.setOnClickListener(this);
         videoSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean bFromUser) {
@@ -173,6 +179,10 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
         mPlayerView.onDestroy();
     }
 
+    public void playerStartGone() {
+        detailsVideoVodFl.setVisibility(GONE);
+    }
+
     public boolean isPlaying(){
         return mLivePlayer.isPlaying();
     }
@@ -201,19 +211,27 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
                 break;
             case R.id.vod_video_play_view:
                 if (vodVideoPlayRl.getVisibility()==VISIBLE) {
+                    handler.removeCallbacks(runnable);
                     vodVideoPlayRl.setVisibility(GONE);
                 } else {
                     vodVideoPlayRl.setVisibility(VISIBLE);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            vodVideoPlayRl.setVisibility(GONE);
-                        }
-                    }, 3000);
+                    handler.removeCallbacks(runnable);
+                    handler.postDelayed(runnable, 3000);
                 }
+                break;
+            case R.id.details_video_vod_fl:
+                onPlayVideoStartListener.succeed();
                 break;
         }
     }
+
+    Handler handler=new Handler();
+    Runnable runnable=new Runnable() {
+        @Override
+        public void run() {
+            vodVideoPlayRl.setVisibility(GONE);
+        }
+    };
 
     public interface OnPlayingListener{
         void isPlaying(boolean isPlaying);
@@ -221,5 +239,13 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
 
     public void setPlayingListener(OnPlayingListener onPlayingListener){
         this.onPlayingListener=onPlayingListener;
+    }
+
+    public interface OnPlayVideoStartListener{
+        void succeed();
+    }
+
+    public void setPlayVideoStartListener(OnPlayVideoStartListener onPlayVideoStartListener){
+        this.onPlayVideoStartListener=onPlayVideoStartListener;
     }
 }

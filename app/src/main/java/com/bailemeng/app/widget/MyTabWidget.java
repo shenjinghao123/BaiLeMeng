@@ -2,6 +2,7 @@ package com.bailemeng.app.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -212,12 +213,12 @@ public class MyTabWidget extends LinearLayout {
 			if ((Integer) (checkedTextView.getTag()) == index) {
 				checkedTextView.setChecked(true);
 				imageView.setSelected(true);
-//				checkedTextView.setTextColor(Color.rgb(44, 168, 225));
+				checkedTextView.setTextColor(Color.parseColor("#E91E63"));
 //				mViewList.get(i).setBackgroundColor(Color.rgb(245,245,245));
 			} else {
 				checkedTextView.setChecked(false);
 				imageView.setSelected(false);
-//				checkedTextView.setTextColor(Color.rgb(19, 12, 14));
+				checkedTextView.setTextColor(Color.parseColor("#4D4D4D"));
 //				mViewList.get(i).setBackgroundColor(Color.rgb(245,245,245));
 			}
 		}

@@ -23,7 +23,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:scaleType="center"
-                android:src="@drawable/umeng_socialize_back_icon"
+                android:src="@mipmap/icon_back"
                 android:visibility="gone" />
 
             <TextView

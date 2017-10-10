@@ -46,7 +46,6 @@ public class VideoDetailsActivity extends BaseAppActivity {
         mActivity.startActivity(intent);
     }
 
-    private ImageView detailsVideoVodIv;
     private FrameLayout detailsVideoVodFl;
     private VideoVODView videoVODView;
     private ViewPager detailsVodViewpager;
@@ -56,13 +55,10 @@ public class VideoDetailsActivity extends BaseAppActivity {
     private List<String> titles=new ArrayList<>();
     private CommentFragment commentFragment;
     private SynopsisFragment synopsisFragment;
-    private FloatingActionButton playStartFab;
     private CollapsingToolbarLayout coolapsingToolbar;
     private AppBarLayout mAppBarLayout;
     private CollapsingToolbarLayoutState state;
     private ButtonBarLayout playButton;
-    private ScaleAnimation animShow;
-    private ScaleAnimation animHind;
     private boolean isFrist=true;
     private TextView playTopTv;
 
@@ -74,30 +70,20 @@ public class VideoDetailsActivity extends BaseAppActivity {
 
     @Override
     public void initialView() {
-        detailsVideoVodIv = (ImageView) findViewById(R.id.details_video_vod_iv);
         detailsVideoVodFl = (FrameLayout) findViewById(R.id.details_video_vod_fl);
         tabLayout = (TabLayout) findViewById(R.id.details_video_vod_tabs);
         detailsVodViewpager = (ViewPager) findViewById(R.id.details_video_vod_viewpager);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
         mToolbar = (Toolbar) findViewById(R.id.details_video_vod_toolbar);
-        playStartFab = (FloatingActionButton) findViewById(R.id.play_start_fab);
         playButton = (ButtonBarLayout) findViewById(R.id.playButton);
         playTopTv = (TextView) findViewById(R.id.play_top_tv);
         coolapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.coolapsing_toolbar);
         videoVODView=new VideoVODView(mActivity);
         detailsVideoVodFl.addView(videoVODView);
-        animShow = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f);
-        animHind = new ScaleAnimation(1, 0, 1, 0, Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f);
-        animShow.setDuration(200);
-        animHind.setDuration(200);
     }
 
     @Override
     public void initialListenter() {
-        playStartFab.setOnClickListener(this);
-        detailsVideoVodIv.setOnClickListener(this);
         playButton.setOnClickListener(this);
         videoVODView.setPlayingListener(new VideoVODView.OnPlayingListener() {
             @Override
@@ -112,6 +98,12 @@ public class VideoDetailsActivity extends BaseAppActivity {
                 }
             }
         });
+        videoVODView.setPlayVideoStartListener(new VideoVODView.OnPlayVideoStartListener() {
+            @Override
+            public void succeed() {
+                startPlay();
+            }
+        });
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -123,9 +115,6 @@ public class VideoDetailsActivity extends BaseAppActivity {
                     }
                 } else if (Math.abs(verticalOffset) >= appBarLayout.getTotalScrollRange()) {
                     if (state != CollapsingToolbarLayoutState.COLLAPSED) {
-                        playStartFab.startAnimation(animHind);
-                        playStartFab.setVisibility(View.GONE);
-
                         coolapsingToolbar.setTitle("");//设置title不显示
                         playButton.setVisibility(View.VISIBLE);//隐藏播放按钮
                         state = CollapsingToolbarLayoutState.COLLAPSED;//修改状态标记为折叠
@@ -134,11 +123,6 @@ public class VideoDetailsActivity extends BaseAppActivity {
                     if (state != CollapsingToolbarLayoutState.INTERNEDIATE) {
                         if(state == CollapsingToolbarLayoutState.COLLAPSED){
                             playButton.setVisibility(View.GONE);//由折叠变为中间状态时隐藏播放按钮
-
-                            if (isFrist) {
-                                playStartFab.startAnimation(animShow);
-                                playStartFab.setVisibility(View.VISIBLE);
-                            }
                         }
                         coolapsingToolbar.setTitle("INTERNEDIATE");//设置title为INTERNEDIATE
                         state = CollapsingToolbarLayoutState.INTERNEDIATE;//修改状态标记为中间
@@ -191,27 +175,27 @@ public class VideoDetailsActivity extends BaseAppActivity {
         super.viewClick(v);
         switch (v.getId()){
             case R.id.playButton:
-            case R.id.details_video_vod_iv:
-            case R.id.play_start_fab:
-                if (isFrist) {
-                    String flvUrl = "http://1253916064.vod2.myqcloud.com/eda2836cvodtransgzp1253916064/6e35407c9031868223240078260/v.f30.mp4";
-                    int type = TXLivePlayer.PLAY_TYPE_VOD_MP4;
-                    videoVODView.playStart(flvUrl, type);
-                    isFrist=false;
-                    playTopTv.setText("继续播放");
-                } else {
-                    videoVODView.playerResume();
-                }
-                AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) coolapsingToolbar.getLayoutParams();
-                mParams.setScrollFlags(0);//的时候AppBarLayout下的toolbar就不会随着滚动条折叠
-                coolapsingToolbar.setLayoutParams(mParams);
-
-                playStartFab.startAnimation(animHind);
-                playStartFab.setVisibility(View.GONE);
-                detailsVideoVodFl.setVisibility(View.VISIBLE);
-                detailsVideoVodIv.setVisibility(View.GONE);
-                playButton.setVisibility(View.GONE);
+                startPlay();
                 break;
         }
+    }
+
+    private void startPlay(){
+        if (isFrist) {
+            String flvUrl = "http://1253916064.vod2.myqcloud.com/eda2836cvodtransgzp1253916064/6e35407c9031868223240078260/v.f30.mp4";
+            int type = TXLivePlayer.PLAY_TYPE_VOD_MP4;
+            videoVODView.playStart(flvUrl, type);
+            isFrist=false;
+            playTopTv.setText("继续播放");
+        } else {
+            videoVODView.playerResume();
+        }
+        AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) coolapsingToolbar.getLayoutParams();
+        mParams.setScrollFlags(0);//的时候AppBarLayout下的toolbar就不会随着滚动条折叠
+        coolapsingToolbar.setLayoutParams(mParams);
+
+        videoVODView.playerStartGone();
+        detailsVideoVodFl.setVisibility(View.VISIBLE);
+        playButton.setVisibility(View.GONE);
     }
 }

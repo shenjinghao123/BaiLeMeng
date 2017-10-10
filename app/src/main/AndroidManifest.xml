@@ -60,6 +60,11 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
         <!-- main -->
+        <!-- home -->
+        <activity
+            android:name=".view.home.activity.EventRegistrationActivity"
+            android:screenOrientation="portrait"></activity>
+        <!-- home -->
         <!-- common -->
         <activity
             android:name=".view.home.activity.VideoDetailsActivity"
@@ -139,20 +144,20 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <!-- 配置bugly组件的APP ID，bugly组件为腾讯提供的用于crash上报和分析的开放组件，如果您不需要该组件，可以自行移除 -->
-        <meta-data
-            android:name="BUGLY_APPID"
-            android:value="928c8ef035"/>
+        <!--&lt;!&ndash; 配置bugly组件的APP ID，bugly组件为腾讯提供的用于crash上报和分析的开放组件，如果您不需要该组件，可以自行移除 &ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="BUGLY_APPID"-->
+            <!--android:value="928c8ef035"/>-->
 
-        <!-- 配置bugly组件的APP渠道号 -->
-        <meta-data
-            android:name="BUGLY_APP_CHANNEL"
-            android:value="RDM版本"/>
+        <!--&lt;!&ndash; 配置bugly组件的APP渠道号 &ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="BUGLY_APP_CHANNEL"-->
+            <!--android:value="RDM版本"/>-->
 
-        <!-- 配置bugly组件的调试模式（true或者false）-->
-        <meta-data
-            android:name="BUGLY_ENABLE_DEBUG"
-            android:value="true"/>
+        <!--&lt;!&ndash; 配置bugly组件的调试模式（true或者false）&ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="BUGLY_ENABLE_DEBUG"-->
+            <!--android:value="true"/>-->
     </application>
 
 </manifest>

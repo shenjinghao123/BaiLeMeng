@@ -1,6 +1,7 @@
 package com.bailemeng.app.view.mine.fragment;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppFragment;
@@ -17,9 +18,11 @@ public class MineFragment extends BaseAppFragment {
         return new MineFragment();
     }
 
+    private TextView titleTv;
+
     @Override
     public void initialView(View view) {
-
+        titleTv = view.findViewById(R.id.tv_app_head_center);
     }
 
     @Override
@@ -29,7 +32,8 @@ public class MineFragment extends BaseAppFragment {
 
     @Override
     public void initialData() {
-
+        titleTv.setVisibility(View.VISIBLE);
+        titleTv.setText("我的");
     }
 
     @Override

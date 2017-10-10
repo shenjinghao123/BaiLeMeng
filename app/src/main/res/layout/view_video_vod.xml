@@ -10,25 +10,54 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
 
+
+    <FrameLayout
+        android:id="@+id/details_video_vod_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_80000000">
+
+        <!--封面图片-->
+        <ImageView
+            android:id="@+id/details_video_vod_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/details_video_vod_play_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fitsSystemWindows="true"
+            android:src="@drawable/record_start"
+            android:scaleType="centerCrop" />
+
+    </FrameLayout>
+
     <RelativeLayout
         android:id="@+id/vod_video_play_rl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_45"
+        android:layout_gravity="bottom"
         android:background="@color/color_80000000"
         android:paddingBottom="@dimen/dimen_3"
-        android:layout_gravity="bottom"
         android:visibility="gone">
 
         <ImageView
             android:id="@+id/vod_video_play_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/record_start"/>
+            android:src="@drawable/record_start" />
 
         <SeekBar
             android:id="@+id/vod_video_seek_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/vod_video_progress_time"
+            android:layout_toRightOf="@+id/vod_video_play_iv"
             android:max="0"
             android:maxHeight="2.0dip"
             android:minHeight="2.0dip"
@@ -36,18 +65,15 @@
             android:paddingRight="25dp"
             android:progress="0"
             android:progressDrawable="@drawable/play_seekbar_progress"
-            android:thumb="@drawable/play_seekbar_icon"
-            android:layout_toRightOf="@+id/vod_video_play_iv"
-            android:layout_toLeftOf="@+id/vod_video_progress_time"
-            android:layout_centerInParent="true" />
+            android:thumb="@drawable/play_seekbar_icon" />
 
         <TextView
             android:id="@+id/vod_video_progress_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_10"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_10"
             android:layout_marginRight="15dp"
             android:text="00:00/00:00"
             android:textColor="@color/c8"

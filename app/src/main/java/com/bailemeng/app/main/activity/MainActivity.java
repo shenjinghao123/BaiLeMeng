@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppActivity;
+import com.bailemeng.app.utils.ToastUtil;
 import com.bailemeng.app.view.college.fragment.CollegeFragment;
 import com.bailemeng.app.view.community.fragment.CommunityFragment;
 import com.bailemeng.app.view.home.fragment.HomeFragment;
@@ -103,6 +104,12 @@ public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSe
                 }
                 break;
             case MAIN_FIVE_INDEX:
+                if (true) {
+                    mTabWidget.setTabsDisplay(mActivity, mIndex);
+                    ToastUtil.showLongToast(mActivity, "该操作需要先登录才能使用");
+                    LoginActivity.start(mActivity, null);
+                    return;
+                }
                 if (null == mineFragment){
                     mineFragment = MineFragment.newInstance();
                     transaction.add(R.id.center_layout, mineFragment);

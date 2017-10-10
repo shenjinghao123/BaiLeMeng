@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppFragment;
 import com.bailemeng.app.utils.ToastUtil;
+import com.bailemeng.app.view.home.activity.EventRegistrationActivity;
 import com.bailemeng.app.view.home.activity.VideoDetailsActivity;
 import com.bailemeng.app.view.home.adapter.HomeItemAdapter;
 import com.bailemeng.app.widget.MyGridView;
@@ -163,6 +164,7 @@ public class HomeItemFragment extends BaseAppFragment {
 //                Intent intent = new Intent();
 //                intent.putExtra("productId",response.get(position-1).getProductId());
 //                ProductDetailsActivity.start(activity,intent);
+                EventRegistrationActivity.start(mActivity,null);
             }
         });
         banner.start();

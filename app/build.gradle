@@ -58,8 +58,8 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    // 导入腾讯云直播SDK jar
-    compile fileTree(dir: 'src/main/jniLibs', includes: ['*.jar'])
+    // 导入短视频SDK aar
+    compile(name: 'LiteAVSDK_UGC_3.4.1797', ext: 'aar')
     //基础项目
     compile 'com.classic.android:core:1.0'
     compile 'com.android.support:design:26.0.0-alpha1'
