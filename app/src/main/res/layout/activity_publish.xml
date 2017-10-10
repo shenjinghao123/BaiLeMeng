@@ -224,7 +224,7 @@
         </RadioGroup>
     </LinearLayout>
 
-    <com.tencent.liteav.demo.common.widget.BeautySettingPannel
+    <com.bailemeng.app.tencent.common.widget.BeautySettingPannel
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/layoutFaceBeauty"

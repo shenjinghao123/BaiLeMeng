@@ -4,7 +4,7 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal">
 
-    <com.tencent.liteav.demo.shortvideo.editor.word.widget.BorderImage
+    <com.bailemeng.app.tencent.shortvideo.editor.word.widget.BorderImage
         android:id="@+id/item_iv_add"
         android:layout_width="40dp"
         android:layout_height="40dp"

@@ -75,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"/>
 
-            <com.tencent.liteav.demo.shortvideo.editor.word.widget.TCOperationViewGroup
+            <com.bailemeng.app.tencent.shortvideo.editor.word.widget.TCOperationViewGroup
                 android:id="@+id/word_rl_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
@@ -116,7 +116,7 @@
                         android:textColor="#777777"
                         android:textSize="@dimen/h6"/>
 
-                    <com.tencent.liteav.demo.shortvideo.editor.word.widget.RangeSeekBar
+                    <com.bailemeng.app.tencent.shortvideo.editor.word.widget.RangeSeekBar
                         android:id="@+id/word_sb_bar"
                         android:layout_width="match_parent"
                         android:layout_height="15dp"
@@ -129,7 +129,7 @@
 
                 </LinearLayout>
 
-                <com.tencent.liteav.demo.shortvideo.editor.word.widget.FloatTextProgressBar
+                <com.bailemeng.app.tencent.shortvideo.editor.word.widget.FloatTextProgressBar
                     android:id="@+id/pb_player"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"

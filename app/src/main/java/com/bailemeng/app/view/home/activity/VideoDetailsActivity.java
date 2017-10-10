@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppActivity;
 import com.bailemeng.app.utils.ScreenUtil;
+import com.bailemeng.app.utils.StatusBarUtil;
 import com.bailemeng.app.view.commonview.VideoVODView;
 import com.bailemeng.app.view.home.fragment.CommentFragment;
 import com.bailemeng.app.view.home.fragment.SynopsisFragment;
@@ -93,10 +94,12 @@ public class VideoDetailsActivity extends BaseAppActivity {
                     mParams.setScrollFlags(0);//的时候AppBarLayout下的toolbar就不会随着滚动条折叠
                     coolapsingToolbar.setLayoutParams(mParams);
                     mToolbar.setVisibility(View.INVISIBLE);
+                    mAppBarLayout.setSystemUiVisibility(View.INVISIBLE);
                 } else {
                     mParams.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL|AppBarLayout.LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED);//的时候AppBarLayout下的toolbar会随着滚动条折叠
                     coolapsingToolbar.setLayoutParams(mParams);
                     mToolbar.setVisibility(View.VISIBLE);
+                    mAppBarLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
                 }
             }
         });
@@ -121,8 +124,10 @@ public class VideoDetailsActivity extends BaseAppActivity {
             public void isShow(boolean b) {
                 if (b){
                     mToolbar.setVisibility(View.VISIBLE);
+                    mAppBarLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
                 } else {
                     mToolbar.setVisibility(View.INVISIBLE);
+                    mAppBarLayout.setSystemUiVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -207,6 +212,8 @@ public class VideoDetailsActivity extends BaseAppActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         detailsVodViewpager.setAdapter(new TabAdapter(getSupportFragmentManager(), fragments,titles));
         tabLayout.setupWithViewPager(detailsVodViewpager);
+        mAppBarLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        StatusBarUtil.setTranslucent(mActivity,0);
     }
 
     @Override
@@ -290,5 +297,6 @@ public class VideoDetailsActivity extends BaseAppActivity {
         detailsVideoVodFl.setVisibility(View.VISIBLE);
         playTopTv.setVisibility(View.GONE);
         mToolbar.setVisibility(View.INVISIBLE);
+        mAppBarLayout.setSystemUiVisibility(View.INVISIBLE);
     }
 }
