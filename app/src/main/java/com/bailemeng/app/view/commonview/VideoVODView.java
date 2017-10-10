@@ -1,6 +1,5 @@
 package com.bailemeng.app.view.commonview;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +16,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.bailemeng.app.R;
-import com.bailemeng.app.utils.ToastUtil;
 import com.tencent.rtmp.ITXLivePlayListener;
 import com.tencent.rtmp.TXLiveConstants;
 import com.tencent.rtmp.TXLivePlayer;
@@ -39,7 +37,7 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
 
     private Context context;
     private View view;
-    private ImageView detailsVideoVodIv;
+    private ImageView detailsVideoVodIv,fullScreenIv;
     private FrameLayout detailsVideoVodFl;
     private TXCloudVideoView mPlayerView;
     private SeekBar videoSeekBar;
@@ -51,6 +49,8 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
     private RelativeLayout vodVideoPlayRl;
     private OnPlayingListener onPlayingListener;
     private OnPlayVideoStartListener onPlayVideoStartListener;
+    private OnPlayVideoFullScreenListener onPlayVideoFullScreenListener;
+    private OnVideoTopShowListener onVideoTopShowListener;
 
     public VideoVODView(@Nullable Context context) {
         this(context,null);
@@ -83,6 +83,7 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
         videoProgressTime = (TextView) view.findViewById(R.id.vod_video_progress_time);
         playIv = (ImageView) view.findViewById(R.id.vod_video_play_iv);
         vodVideoPlayRl = (RelativeLayout) view.findViewById(R.id.vod_video_play_rl);
+        fullScreenIv = (ImageView) view.findViewById(R.id.full_screen_iv);
         addView(view);
     }
 
@@ -90,6 +91,7 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
         mPlayerView.setOnClickListener(this);
         playIv.setOnClickListener(this);
         detailsVideoVodFl.setOnClickListener(this);
+        fullScreenIv.setOnClickListener(this);
         videoSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean bFromUser) {
@@ -213,14 +215,21 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
                 if (vodVideoPlayRl.getVisibility()==VISIBLE) {
                     handler.removeCallbacks(runnable);
                     vodVideoPlayRl.setVisibility(GONE);
+                    if (mLivePlayer.isPlaying()) {
+                        onVideoTopShowListener.isShow(false);
+                    }
                 } else {
                     vodVideoPlayRl.setVisibility(VISIBLE);
+                    onVideoTopShowListener.isShow(true);
                     handler.removeCallbacks(runnable);
                     handler.postDelayed(runnable, 3000);
                 }
                 break;
             case R.id.details_video_vod_fl:
                 onPlayVideoStartListener.succeed();
+                break;
+            case R.id.full_screen_iv://全屏
+                onPlayVideoFullScreenListener.succeed();
                 break;
         }
     }
@@ -230,6 +239,9 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
         @Override
         public void run() {
             vodVideoPlayRl.setVisibility(GONE);
+            if (mLivePlayer.isPlaying()) {
+                onVideoTopShowListener.isShow(false);
+            }
         }
     };
 
@@ -247,5 +259,21 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
 
     public void setPlayVideoStartListener(OnPlayVideoStartListener onPlayVideoStartListener){
         this.onPlayVideoStartListener=onPlayVideoStartListener;
+    }
+
+    public interface OnPlayVideoFullScreenListener{
+        void succeed();
+    }
+
+    public void setPlayVideoFullScreenListener(OnPlayVideoFullScreenListener onPlayVideoFullScreenListener){
+        this.onPlayVideoFullScreenListener=onPlayVideoFullScreenListener;
+    }
+
+    public interface OnVideoTopShowListener{
+        void isShow(boolean b);
+    }
+
+    public void setVideoTopShowListener(OnVideoTopShowListener onVideoTopShowListener){
+        this.onVideoTopShowListener=onVideoTopShowListener;
     }
 }

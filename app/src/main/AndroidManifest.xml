@@ -59,6 +59,14 @@
             android:name=".main.activity.LoginTwoStageActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".main.activity.RegisterActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".main.activity.ForgotPwdActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"></activity>
         <!-- main -->
         <!-- home -->
         <activity
@@ -68,7 +76,7 @@
         <!-- common -->
         <activity
             android:name=".view.home.activity.VideoDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:configChanges="orientation|screenSize"></activity>
         <!-- common -->
         <!-- umeng -->
         <activity

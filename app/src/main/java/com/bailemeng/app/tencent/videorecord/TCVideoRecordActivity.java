@@ -64,7 +64,7 @@ public class TCVideoRecordActivity extends Activity implements View.OnClickListe
     private static final String OUTPUT_DIR_NAME = "TXUGC";
     private boolean mRecording = false;
     private boolean mStartPreview = false;
-    private boolean mFront = true;
+    private boolean mFront = false;
     private TXUGCRecord mTXCameraRecord;
     private TXRecordCommon.TXRecordResult mTXRecordResult;
 

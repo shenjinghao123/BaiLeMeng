@@ -1,101 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_ffffff">
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:src="@mipmap/icon_login_bg"
-        android:scaleType="fitXY"/>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingLeft="@dimen/dimen_50"
-        android:paddingRight="@dimen/dimen_50"
-        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_height="match_parent"
+        android:background="@color/color_ffffff"
         android:orientation="vertical">
 
-        <TableRow
-            android:id="@+id/login_weixin_go"
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dimen_10"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_weight="2"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_login_bg" />
 
-            <ImageView
-                android:layout_width="@dimen/dimen_30"
-                android:layout_height="@dimen/dimen_30"
-                android:src="@mipmap/icon_login_wx"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_10"
-                android:textColor="@color/color_333333"
-                android:textSize="@dimen/text_16"
-                android:text="微信登录"/>
-
-        </TableRow>
-
-        <View style="@style/line_E5E5E5_drivie"/>
-
-        <TableRow
-            android:id="@+id/login_qq_go"
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dimen_10"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dimen_50"
+            android:paddingRight="@dimen/dimen_50">
 
-            <ImageView
-                android:layout_width="@dimen/dimen_30"
-                android:layout_height="@dimen/dimen_30"
-                android:src="@mipmap/icon_login_qq"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+            <TableRow
+                android:id="@+id/login_weixin_go"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_10"
-                android:textColor="@color/color_333333"
-                android:textSize="@dimen/text_16"
-                android:text="QQ登录"/>
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_10">
 
-        </TableRow>
+                <ImageView
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:src="@mipmap/icon_login_wx" />
 
-        <View style="@style/line_E5E5E5_drivie"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:text="微信登录"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/text_16" />
 
-        <TableRow
-            android:id="@+id/login_phone_go"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/dimen_10"
-            android:orientation="horizontal"
-            android:gravity="center">
+            </TableRow>
 
-            <ImageView
-                android:layout_width="@dimen/dimen_30"
-                android:layout_height="@dimen/dimen_30"
-                android:src="@mipmap/icon_login_phone"/>
+            <View style="@style/line_E5E5E5_drivie" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <TableRow
+                android:id="@+id/login_qq_go"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_10"
-                android:textColor="@color/color_333333"
-                android:textSize="@dimen/text_16"
-                android:text="手机登录"/>
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_10">
 
-        </TableRow>
+                <ImageView
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:src="@mipmap/icon_login_qq" />
 
-        <View style="@style/line_E5E5E5_drivie"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:text="QQ登录"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/text_16" />
 
-    </TableLayout>
+            </TableRow>
 
-</LinearLayout>
+            <View style="@style/line_E5E5E5_drivie" />
+
+            <TableRow
+                android:id="@+id/login_phone_go"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_10">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_30"
+                    android:layout_height="@dimen/dimen_30"
+                    android:src="@mipmap/icon_login_phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10"
+                    android:text="手机登录"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/text_16" />
+
+            </TableRow>
+
+            <View style="@style/line_E5E5E5_drivie" />
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/login_cancel_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:padding="@dimen/dimen_10"
+        android:layout_margin="@dimen/dimen_5"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_20"
+        android:text="取消"/>
+
+</FrameLayout>

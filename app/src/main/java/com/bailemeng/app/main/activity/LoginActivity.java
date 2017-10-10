@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppActivity;
@@ -36,12 +37,14 @@ public class LoginActivity extends BaseAppActivity {
     }
 
     private TableRow weixinGoTr,qqGoTr,phoneGoTr;
+    private TextView loginCancelTv;
 
     @Override
     public void initialView() {
         weixinGoTr = (TableRow) findViewById(R.id.login_weixin_go);
         qqGoTr = (TableRow) findViewById(R.id.login_qq_go);
         phoneGoTr = (TableRow) findViewById(R.id.login_phone_go);
+        loginCancelTv = (TextView) findViewById(R.id.login_cancel_tv);
     }
 
     @Override
@@ -49,6 +52,7 @@ public class LoginActivity extends BaseAppActivity {
         weixinGoTr.setOnClickListener(this);
         qqGoTr.setOnClickListener(this);
         phoneGoTr.setOnClickListener(this);
+        loginCancelTv.setOnClickListener(this);
     }
 
     @Override
@@ -77,6 +81,9 @@ public class LoginActivity extends BaseAppActivity {
                 break;
             case R.id.login_phone_go:
                 LoginTwoStageActivity.start(mActivity,null);
+                break;
+            case R.id.login_cancel_tv:
+                finish();
                 break;
         }
     }

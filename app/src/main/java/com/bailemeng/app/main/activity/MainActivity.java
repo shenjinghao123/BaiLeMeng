@@ -1,5 +1,6 @@
 package com.bailemeng.app.main.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import com.bailemeng.app.view.home.fragment.HomeFragment;
 import com.bailemeng.app.view.mine.fragment.MineFragment;
 import com.bailemeng.app.widget.MyTabWidget;
 import com.bailemeng.app.widget.dialog.ShadeBottomUploadDialog;
+import com.classic.android.base.BaseActivityStack;
 import com.classic.android.utils.DoubleClickExitHelper;
 import com.tencent.rtmp.TXLiveBase;
 
@@ -39,6 +41,17 @@ public class MainActivity extends BaseAppActivity implements MyTabWidget.OnTabSe
     private CollegeFragment      collegeFragment;//大学页面
     private CommunityFragment    communityFragment;//社区页面
     private MineFragment         mineFragment;//我的页面
+
+    public static void start(Activity mActivity, Intent extras) {
+        BaseActivityStack.getInstance().finishAllActivity();
+        Intent intent = new Intent();
+        intent.setClass(mActivity, MainActivity.class);
+        if (extras != null){
+            intent.putExtras(extras);
+        }
+        mActivity.startActivity(intent);
+    }
+
     @Override
     public int getLayoutResId() {
         return R.layout.activity_main;

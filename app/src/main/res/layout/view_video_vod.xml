@@ -61,8 +61,8 @@
             android:max="0"
             android:maxHeight="2.0dip"
             android:minHeight="2.0dip"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:progress="0"
             android:progressDrawable="@drawable/play_seekbar_progress"
             android:thumb="@drawable/play_seekbar_icon" />
@@ -71,13 +71,21 @@
             android:id="@+id/vod_video_progress_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/full_screen_iv"
             android:layout_marginLeft="@dimen/dimen_10"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="@dimen/dimen_10"
             android:text="00:00/00:00"
             android:textColor="@color/c8"
             android:textSize="@dimen/text_12" />
+
+        <ImageView
+            android:id="@+id/full_screen_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/automatic"/>
 
     </RelativeLayout>
 
