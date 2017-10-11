@@ -4,9 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <include layout="@layout/common_title"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/community_message_rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="communityFragment"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
