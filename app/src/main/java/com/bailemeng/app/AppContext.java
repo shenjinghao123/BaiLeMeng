@@ -23,8 +23,8 @@ import com.umeng.socialize.UMShareAPI;
 public class AppContext extends Application {
     {
 
-        PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
-        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+        PlatformConfig.setWeixin("wx4af595bda8c8a77d"/*"wx967daebe835fbeac"*/, "7fc6356e6e4d7c02ed19e848c4168232"/*"5bb696d9ccd75a38c8a0bfe0675559b3"*/);
+        PlatformConfig.setQQZone("1106270066"/*"100424468"*/, "c7394704798a158208a74ab60104f0ba");
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
     }
 

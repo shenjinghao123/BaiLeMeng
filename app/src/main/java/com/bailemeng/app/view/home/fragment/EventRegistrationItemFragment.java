@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bailemeng.app.R;
@@ -22,24 +23,23 @@ public class EventRegistrationItemFragment extends BaseAppFragment {
     }
 
     private ImageView itemEvevtIv;
-    private TextView itemEvevtTv;
+    private LinearLayout itemEvevtLl;
 
     @Override
     public void initialView(View view) {
         itemEvevtIv=view.findViewById(R.id.item_evevt_iv);
-        itemEvevtTv=view.findViewById(R.id.item_evevt_tv);
+        itemEvevtLl=view.findViewById(R.id.item_evevt_ll);
         //获取Activity传递过来的参数
         Bundle mBundle = getArguments();
         int type = mBundle.getInt("type");
         String color = mBundle.getString("title");
         if (type==0){
             itemEvevtIv.setVisibility(View.VISIBLE);
-            itemEvevtTv.setVisibility(View.GONE);
+            itemEvevtLl.setVisibility(View.GONE);
             itemEvevtIv.setBackgroundColor(Color.parseColor(color));
         } else if (type==1){
             itemEvevtIv.setVisibility(View.GONE);
-            itemEvevtTv.setVisibility(View.VISIBLE);
-            itemEvevtTv.setText("finish");
+            itemEvevtLl.setVisibility(View.VISIBLE);
         }
     }
 

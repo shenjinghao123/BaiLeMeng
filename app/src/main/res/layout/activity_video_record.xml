@@ -97,7 +97,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="25dp"
                     android:onClick="onClick"
-                    android:src="@drawable/selector_switch_camera"/>
+                    android:src="@drawable/selector_switch_camera"
+                    android:visibility="visible"/>
             </LinearLayout>
 
             <RelativeLayout
@@ -197,7 +198,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="14dp"
         android:layout_marginTop="30dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/iv_scale"
@@ -296,7 +298,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/layout_beauty"
             android:layout_marginTop="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/btn_music_pannel"

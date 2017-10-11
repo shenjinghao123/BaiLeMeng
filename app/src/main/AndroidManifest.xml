@@ -72,6 +72,15 @@
         <activity
             android:name=".view.home.activity.EventRegistrationActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.home.activity.SearchVideoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.home.activity.EventDetailsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.home.activity.EventDetailsItemActivity"
+            android:screenOrientation="portrait"></activity>
         <!-- home -->
         <!-- common -->
         <activity
@@ -79,6 +88,12 @@
             android:configChanges="orientation|screenSize"></activity>
         <!-- common -->
         <!-- umeng -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -88,7 +103,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="tencent100424468" />
+                <data android:scheme="tencent1106270066" />
             </intent-filter>
 
         </activity>

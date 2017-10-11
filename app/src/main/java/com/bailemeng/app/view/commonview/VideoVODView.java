@@ -202,11 +202,11 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
         switch (v.getId()){
             case R.id.vod_video_play_iv:
                 if (mLivePlayer.isPlaying()) {
-                    playIv.setImageResource(R.drawable.record_start_press);
+                    playIv.setImageResource(R.drawable.play_pause);
                     mLivePlayer.pause();
                     onPlayingListener.isPlaying(false);
                 } else {
-                    playIv.setImageResource(R.drawable.record_start);
+                    playIv.setImageResource(R.drawable.play_start);
                     mLivePlayer.resume();
                     onPlayingListener.isPlaying(true);
                 }

@@ -49,7 +49,8 @@
             android:id="@+id/vod_video_play_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/record_start" />
+            android:layout_centerVertical="true"
+            android:src="@drawable/play_start" />
 
         <SeekBar
             android:id="@+id/vod_video_seek_bar"

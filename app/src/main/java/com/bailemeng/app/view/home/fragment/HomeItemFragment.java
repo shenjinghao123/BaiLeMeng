@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppFragment;
 import com.bailemeng.app.utils.ToastUtil;
+import com.bailemeng.app.view.home.activity.EventDetailsActivity;
 import com.bailemeng.app.view.home.activity.EventRegistrationActivity;
 import com.bailemeng.app.view.home.activity.VideoDetailsActivity;
 import com.bailemeng.app.view.home.adapter.HomeItemAdapter;
@@ -51,6 +52,7 @@ public class HomeItemFragment extends BaseAppFragment {
     private SwipeRefreshLayout swipeRefresh;
     private ScrollView scrollView;
     private List<String> list = new ArrayList<String>();
+    private TextView roundEnterTv1,roundEnterTv2,roundEnterTv3,roundEnterTv4;
 
     @Override
     public void initialView(View view) {
@@ -58,6 +60,10 @@ public class HomeItemFragment extends BaseAppFragment {
         itemGridView = view.findViewById(R.id.home_item_grid_view);
         swipeRefresh = view.findViewById(R.id.home_swipe_refresh);
         scrollView = view.findViewById(R.id.home_scroll_view);
+        roundEnterTv1 = view.findViewById(R.id.round_enter_tv1);
+        roundEnterTv2 = view.findViewById(R.id.round_enter_tv2);
+        roundEnterTv3 = view.findViewById(R.id.round_enter_tv3);
+        roundEnterTv4 = view.findViewById(R.id.round_enter_tv4);
 
         //获取Activity传递过来的参数
         Bundle mBundle = getArguments();
@@ -67,6 +73,10 @@ public class HomeItemFragment extends BaseAppFragment {
 
     @Override
     public void initialListenter() {
+        roundEnterTv1.setOnClickListener(this);
+        roundEnterTv2.setOnClickListener(this);
+        roundEnterTv3.setOnClickListener(this);
+        roundEnterTv4.setOnClickListener(this);
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -170,4 +180,22 @@ public class HomeItemFragment extends BaseAppFragment {
         banner.start();
     }
 
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.round_enter_tv1:
+                EventDetailsActivity.start(mActivity,null);
+                break;
+            case R.id.round_enter_tv2:
+                EventDetailsActivity.start(mActivity,null);
+                break;
+            case R.id.round_enter_tv3:
+                EventDetailsActivity.start(mActivity,null);
+                break;
+            case R.id.round_enter_tv4:
+                EventDetailsActivity.start(mActivity,null);
+                break;
+        }
+    }
 }

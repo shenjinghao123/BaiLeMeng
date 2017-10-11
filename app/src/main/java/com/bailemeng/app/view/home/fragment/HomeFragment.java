@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppFragment;
+import com.bailemeng.app.utils.ToastUtil;
+import com.bailemeng.app.view.home.activity.SearchVideoActivity;
 import com.bailemeng.app.view.home.adapter.HomeTabAdapter;
 import com.bailemeng.app.widget.MyViewPager;
 
@@ -24,12 +26,13 @@ import java.util.List;
 public class HomeFragment extends BaseAppFragment {
 
     private TabLayout tabLayout;
-    private MyViewPager viewPager;
+    private ViewPager viewPager;
 
     private List<String>	 titles	   = new ArrayList<>();
 
     private HomeTabAdapter adapter;
     private ViewHolder holder;
+    private TextView searchVideoTv;
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -43,12 +46,13 @@ public class HomeFragment extends BaseAppFragment {
     @Override
     public void initialView(View view) {
         tabLayout = (TabLayout) view.findViewById(R.id.home_manage_tab);
-        viewPager = (MyViewPager) view.findViewById(R.id.vp_home_manage_tab_container);
+        viewPager = (ViewPager) view.findViewById(R.id.vp_home_manage_tab_container);
+        searchVideoTv = (TextView) view.findViewById(R.id.search_video_tv);
     }
 
     @Override
     public void initialListenter() {
-
+        searchVideoTv.setOnClickListener(this);
     }
 
     @Override
@@ -128,6 +132,16 @@ public class HomeFragment extends BaseAppFragment {
 
         public ViewHolder(View tabView) {
             tvTabName = (TextView) tabView.findViewById(R.id.tv_tab_name);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.search_video_tv:
+                SearchVideoActivity.start(mActivity,null);
+                break;
         }
     }
 }
