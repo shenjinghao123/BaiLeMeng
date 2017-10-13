@@ -9,6 +9,12 @@
         <item name="android:windowAnimationStyle">@style/activity_change_anim</item>
     </style>
 
+    <style name="AppSplash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@mipmap/icon_start</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">?android:windowNoTitle</item>
+    </style>
+
     <!-- 页面打开方式 （左进右出）-->
     <style name="activity_change_anim" parent="@android:style/Animation.Activity">
         <!--<item name="android:activityOpenEnterAnimation">@anim/fade_in_left</item>-->

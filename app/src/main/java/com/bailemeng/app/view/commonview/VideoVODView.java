@@ -174,6 +174,8 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
     public void playerPause() {
         // 暂停
         mLivePlayer.pause();
+        vodVideoPlayRl.setVisibility(VISIBLE);
+        onVideoTopShowListener.isShow(true);
     }
 
     public void playerDestroy() {

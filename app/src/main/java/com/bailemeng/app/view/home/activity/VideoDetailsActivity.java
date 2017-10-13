@@ -225,7 +225,7 @@ public class VideoDetailsActivity extends BaseAppActivity {
     protected void onResume() {
         super.onResume();
         // 继续
-        videoVODView.playerResume();
+//        videoVODView.playerResume();
     }
 
     @Override
