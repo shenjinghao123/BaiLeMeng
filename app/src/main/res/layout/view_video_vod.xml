@@ -47,10 +47,11 @@
 
         <ImageView
             android:id="@+id/vod_video_play_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dimen_45"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:src="@drawable/play_start" />
+            android:scaleType="center"
+            android:src="@drawable/btn_pause" />
 
         <SeekBar
             android:id="@+id/vod_video_seek_bar"

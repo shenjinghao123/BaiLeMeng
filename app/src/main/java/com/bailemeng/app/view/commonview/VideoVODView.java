@@ -174,8 +174,11 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
     public void playerPause() {
         // 暂停
         mLivePlayer.pause();
-        vodVideoPlayRl.setVisibility(VISIBLE);
-        onVideoTopShowListener.isShow(true);
+        if (detailsVideoVodFl.getVisibility()==GONE) {
+            vodVideoPlayRl.setVisibility(VISIBLE);
+            onVideoTopShowListener.isShow(true);
+            playIv.setImageResource(R.drawable.btn_play);
+        }
     }
 
     public void playerDestroy() {
@@ -204,12 +207,13 @@ public class VideoVODView extends FrameLayout implements View.OnClickListener {
         switch (v.getId()){
             case R.id.vod_video_play_iv:
                 if (mLivePlayer.isPlaying()) {
-                    playIv.setImageResource(R.drawable.play_pause);
+                    playIv.setImageResource(R.drawable.btn_play);
                     mLivePlayer.pause();
                     onPlayingListener.isPlaying(false);
                 } else {
-                    playIv.setImageResource(R.drawable.play_start);
+                    playIv.setImageResource(R.drawable.btn_pause);
                     mLivePlayer.resume();
+                    vodVideoPlayRl.setVisibility(GONE);
                     onPlayingListener.isPlaying(true);
                 }
                 break;

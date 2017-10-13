@@ -80,12 +80,4 @@ public abstract class Callback<T>
 
         }
     };
-    Context context;
-    public void setContext(Context context){
-        this.context=context;
-    }
-
-    public Context getContext() {
-        return context;
-    }
 }

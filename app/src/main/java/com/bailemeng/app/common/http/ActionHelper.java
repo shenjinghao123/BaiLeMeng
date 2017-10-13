@@ -20,30 +20,20 @@ public class ActionHelper extends BaseActionHelper {
      * 登录请求
      *
      * @param activity
-     * @param mobile
-     * @param password
-     * @param method
-     * @param json
      */
-    public static void login(final Activity activity, String method, final String mobile, final String password, Map<String, String> json, Callback callback){
-        callback.setContext(activity.getApplicationContext());
+    public static void test(final Activity activity, Callback callback){
         final String timeStamp = String.valueOf(System.currentTimeMillis());
-        final Map<String, String> params = getRequestParams(timeStamp);
+        final Map<String, String> params = new HashMap<>();//getRequestParams(timeStamp);
         final Map<String, String> data = new HashMap<>();
         // 记录参数
-        data.put("service", getLoginUrl()+"signIn");
-        data.put("token", "");
-        data.put("method", method);
-        data.put("isSign", "n");
-        if (!DataUtil.isEmpty(mobile)) data.put("mobile", mobile);
-        if (!DataUtil.isEmpty(password)) data.put("password", password);
-        if (!DataUtil.isEmpty(json)) data.put("info",new Gson().toJson(json));
+        data.put("url","/video"+"/popularity/page");
+        data.put("pageNum", "1");
+        data.put("classifyId", "1");
 
-        params.put("content", getContent(data,AES_KEY));
-        params.put("sign", getSign(params,APPSECRET));
+        params.put("data", new Gson().toJson(data));
 
         OkHttpUtils.post()
-                .url(getPersonUrl())
+                .url(getUrl())
                 .tag(activity)
                 .params(params)
                 .build()

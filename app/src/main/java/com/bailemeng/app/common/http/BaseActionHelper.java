@@ -30,6 +30,8 @@ public class BaseActionHelper {
 //    private static String URL_R = "http://liqone.s1.natapp.cc/xshop_sgw_api/member/submit.do"; //
 //    private static String URL_O = "http://liqone.s1.natapp.cc/xshop_sgw_api/member/submit.do"; //
 
+    private static String URL = "https://api.ibailemeng.com/api/json";
+
     private static String URL_R = "http://www.artistmarket.cn:8080/xshop_sgw_api/member/submit.do";
     private static String URL_O = "http://www.artistmarket.cn:8080/xshop_sgw_api/member/submit.do";
 
@@ -80,6 +82,10 @@ public class BaseActionHelper {
     }
     public static String getAppOrderUrl() {
         return URL_O;
+    }
+
+    public static String getUrl(){
+        return URL;
     }
 
     protected static Map<String, String> getHeaders() {
