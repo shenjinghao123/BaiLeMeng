@@ -15,17 +15,24 @@
         <EditText
             android:id="@+id/register_phone_et"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/transparent"
             android:layout_marginLeft="@dimen/dimen_10"
             android:layout_centerVertical="true"
             android:textCursorDrawable="@null"
+            android:layout_toLeftOf="@+id/identify_code_tv"
+            android:inputType="number"
+            android:textSize="@dimen/dimen_14"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_999999"
             android:hint="请输入手机号"/>
 
         <TextView
+            android:id="@+id/identify_code_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
+            android:gravity="center"
             android:layout_alignParentRight="true"
             android:textColor="@color/colorPrimary"
             android:text="获取验证码"/>
@@ -43,18 +50,25 @@
         <EditText
             android:id="@+id/register_identify_code_et"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/transparent"
             android:layout_marginLeft="@dimen/dimen_10"
             android:layout_centerVertical="true"
             android:textCursorDrawable="@null"
+            android:inputType="number"
+            android:layout_toLeftOf="@+id/no_identify_code_hint_tv"
+            android:textSize="@dimen/dimen_14"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_999999"
             android:hint="验证码"/>
 
         <TextView
+            android:id="@+id/no_identify_code_hint_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:gravity="center"
             android:text="没收到验证码？"/>
 
         <View style="@style/line_E5E5E5_drivie"
@@ -70,11 +84,15 @@
         <EditText
             android:id="@+id/register_passward_et"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/transparent"
             android:layout_marginLeft="@dimen/dimen_10"
             android:layout_centerVertical="true"
             android:textCursorDrawable="@null"
+            android:inputType="textPassword"
+            android:textSize="@dimen/dimen_14"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_999999"
             android:hint="请输入登录密码"/>
 
         <View style="@style/line_E5E5E5_drivie"

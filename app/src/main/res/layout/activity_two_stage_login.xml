@@ -29,6 +29,10 @@
             android:layout_alignTop="@+id/login_phone_iv"
             android:layout_alignBottom="@+id/login_phone_iv"
             android:layout_centerVertical="true"
+            android:inputType="number"
+            android:textSize="@dimen/dimen_14"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_999999"
             android:textCursorDrawable="@null"
             android:hint="请输入手机号"/>
 
@@ -60,6 +64,10 @@
             android:layout_alignTop="@+id/login_passward_iv"
             android:layout_alignBottom="@+id/login_passward_iv"
             android:layout_centerVertical="true"
+            android:inputType="textPassword"
+            android:textSize="@dimen/dimen_14"
+            android:textColor="@color/color_333333"
+            android:textColorHint="@color/color_999999"
             android:textCursorDrawable="@null"
             android:hint="6-16位密码"/>
 
@@ -124,6 +132,7 @@
             android:text="点击登录即视为同意"/>
 
         <TextView
+            android:id="@+id/web_term_service_content_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"

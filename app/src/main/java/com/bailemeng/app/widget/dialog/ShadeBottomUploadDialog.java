@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import com.bailemeng.app.R;
 import com.bailemeng.app.tencent.videorecord.TCVideoRecordActivity;
 import com.bailemeng.app.utils.ToastUtil;
+import com.bailemeng.app.view.commonview.activity.VideoReleaseActivity;
 
 /**
  * 应用名称: BaiLeMeng
@@ -81,6 +82,7 @@ public class ShadeBottomUploadDialog extends Dialog implements View.OnClickListe
                 break;
             case R.id.upload_video_ll:
                 ToastUtil.showLongToast(activity,"上传");
+                VideoReleaseActivity.start(activity,null);
                 break;
         }
     }

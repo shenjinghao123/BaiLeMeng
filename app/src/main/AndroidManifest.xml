@@ -94,6 +94,12 @@
         <activity
             android:name=".view.home.activity.VideoDetailsActivity"
             android:configChanges="orientation|screenSize"></activity>
+        <activity
+            android:name=".view.commonview.activity.VideoReleaseActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.commonview.activity.WebViewActivity"
+            android:screenOrientation="portrait"></activity>
         <!-- common -->
         <!-- umeng -->
         <activity

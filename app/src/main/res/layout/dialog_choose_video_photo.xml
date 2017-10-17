@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/color_ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View style="@style/line_E5E5E5_drivie"/>
+
+    <TextView
+        android:id="@+id/choose_photo_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_15"
+        android:gravity="center"
+        android:textSize="@dimen/dimen_14"
+        android:text="选择封面"/>
+
+    <View style="@style/line_E5E5E5_drivie"/>
+
+    <TextView
+        android:id="@+id/choose_video_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_15"
+        android:gravity="center"
+        android:textSize="@dimen/dimen_14"
+        android:text="选择视频"/>
+
+</LinearLayout>

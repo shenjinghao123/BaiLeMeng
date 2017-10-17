@@ -7,7 +7,8 @@
     <ImageView
         android:id="@+id/item_evevt_iv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
     <LinearLayout
         android:id="@+id/item_evevt_ll"
@@ -59,9 +60,12 @@
                     android:layout_height="wrap_content"
                     android:text="出生年月"/>
 
-                <EditText
+                <TextView
+                    android:id="@+id/select_date_birth_tv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_15"
+                    android:text="请选择"/>
             </TableRow>
 
             <TableRow>
@@ -70,9 +74,12 @@
                     android:layout_height="wrap_content"
                     android:text="所在地"/>
 
-                <EditText
+                <TextView
+                    android:id="@+id/select_location_tv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_15"
+                    android:text="请选择"/>
             </TableRow>
 
         </TableLayout>

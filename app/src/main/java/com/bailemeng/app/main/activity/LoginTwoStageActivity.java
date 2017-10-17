@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.bailemeng.app.R;
 import com.bailemeng.app.base.BaseAppActivity;
+import com.bailemeng.app.view.commonview.activity.WebViewActivity;
 
 /**
  * 应用名称: BaiLeMeng
@@ -25,7 +26,7 @@ public class LoginTwoStageActivity extends BaseAppActivity {
         mActivity.startActivity(intent);
     }
 
-    private TextView headTitle,headLeft,loginTogoMainTv,loginTogoRegisterTv,loginTogoForgotTv;
+    private TextView headTitle,headLeft,loginTogoMainTv,loginTogoRegisterTv,loginTogoForgotTv,webTermTv;
 
     @Override
     public void initialView() {
@@ -34,6 +35,7 @@ public class LoginTwoStageActivity extends BaseAppActivity {
         loginTogoMainTv = (TextView) findViewById(R.id.login_togo_main_tv);//登录
         loginTogoRegisterTv = (TextView) findViewById(R.id.login_togo_register_tv);//注册
         loginTogoForgotTv = (TextView) findViewById(R.id.login_forget_passward_tv);//找回密码
+        webTermTv = (TextView) findViewById(R.id.web_term_service_content_tv);//服务条款
     }
 
     @Override
@@ -42,6 +44,7 @@ public class LoginTwoStageActivity extends BaseAppActivity {
         loginTogoMainTv.setOnClickListener(this);
         loginTogoRegisterTv.setOnClickListener(this);
         loginTogoForgotTv.setOnClickListener(this);
+        webTermTv.setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +75,9 @@ public class LoginTwoStageActivity extends BaseAppActivity {
                 break;
             case R.id.login_forget_passward_tv:
                 RegisterActivity.start(mActivity,null);
+                break;
+            case R.id.web_term_service_content_tv:
+                WebViewActivity.start(mActivity,"网页","https://www.baidu.com");
                 break;
         }
     }

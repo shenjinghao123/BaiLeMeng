@@ -26,6 +26,7 @@ import com.bailemeng.app.R;
 import com.bailemeng.app.tencent.common.utils.TCConstants;
 import com.bailemeng.app.tencent.shortvideo.editor.TCVideoEditerActivity;
 import com.bailemeng.app.tencent.shortvideo.joiner.TCVideoJoinerActivity;
+import com.bailemeng.app.utils.ToastUtil;
 import com.bumptech.glide.Glide;
 import com.tencent.liteav.basic.log.TXCLog;
 
@@ -154,7 +155,7 @@ public class TCVideoChooseActivity extends Activity implements View.OnClickListe
 
     private void doSelect() {
         if (mType == TYPE_SINGLE_CHOOSE) {
-            Intent intent = new Intent(this, TCVideoEditerActivity.class);
+//            Intent intent = new Intent(this, TCVideoEditerActivity.class);
             TCVideoFileInfo fileInfo = mAdapter.getSingleSelected();
             if (fileInfo == null) {
                 TXCLog.d(TAG, "select file null");
@@ -169,8 +170,9 @@ public class TCVideoChooseActivity extends Activity implements View.OnClickListe
                 showErrorDialog("选择的文件不存在");
                 return;
             }
-            intent.putExtra(TCConstants.INTENT_KEY_SINGLE_CHOOSE, fileInfo);
-            startActivity(intent);
+//            intent.putExtra(TCConstants.INTENT_KEY_SINGLE_CHOOSE, fileInfo);
+//            startActivity(intent);
+            ToastUtil.showLongToast(this,fileInfo.getFilePath());
         } else {
             Intent intent = new Intent(this, TCVideoJoinerActivity.class);
             ArrayList<TCVideoFileInfo> videoFileInfos = mAdapter.getMultiSelected();
